@@ -1,0 +1,290 @@
+.tile-catalog {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(26, 35, 50, 0.85);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(212, 165, 116, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.tile-catalog h2 {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #d4a574 0%, #e6b885 50%, #f4c794 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.catalog-subtitle {
+  color: #d4a574;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(212, 165, 116, 0.2);
+  justify-content: center;
+}
+
+.category-btn {
+  background: linear-gradient(135deg, rgba(26, 35, 50, 0.1) 0%, rgba(45, 62, 82, 0.1) 100%);
+  border: 2px solid rgba(212, 165, 116, 0.3);
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d4a574;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+.category-btn:hover::before {
+  left: 100%;
+}
+
+.category-btn:hover {
+  background: linear-gradient(135deg, #d4a574 0%, #e6b885 100%);
+  color: #1a2332;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #d4a574 0%, #e6b885 100%);
+  color: #1a2332;
+  border-color: #d4a574;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 165, 116, 0.5);
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.tile-card {
+  background: linear-gradient(135deg, rgba(45, 62, 82, 0.9) 0%, rgba(30, 58, 95, 0.8) 100%);
+  border: 2px solid rgba(212, 165, 116, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.tile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, rgba(230, 184, 133, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tile-card:hover::before {
+  opacity: 1;
+}
+
+.tile-card:hover {
+  border-color: #d4a574;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(212, 165, 116, 0.3);
+}
+
+.tile-card.selected {
+  border-color: #d4a574;
+  box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.3);
+  transform: translateY(-3px);
+}
+
+.tile-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a2332 0%, #2d3e52 100%);
+  border-bottom: 2px solid rgba(212, 165, 116, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2d3e52 0%, #1e3a5f 100%);
+  color: #d4a574;
+  gap: 10px;
+}
+
+.placeholder-icon {
+  font-size: 2.5rem;
+}
+
+.placeholder-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 8px 8px 0 0;
+  opacity: 1;
+  background: linear-gradient(135deg, #2d3e52 0%, #1e3a5f 100%);
+  border: 2px solid rgba(212, 165, 116, 0.1);
+}
+
+.tile-image img:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.tile-card:hover .tile-image img {
+  transform: scale(1.05);
+  border-color: rgba(212, 165, 116, 0.4);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.tile-info {
+  padding: 15px;
+}
+
+.tile-info h3 {
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #e6b885 0%, #f4c794 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.tile-category {
+  background: linear-gradient(135deg, #d4a574 0%, #e6b885 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.tile-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.tile-specs span {
+  font-size: 0.85rem;
+  color: #d4a574;
+  font-weight: 500;
+}
+
+.tile-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(212, 165, 116, 0.3);
+}
+
+.tile-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #d4a574 0%, #e6b885 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tile-unit {
+  font-size: 0.85rem;
+  color: #d4a574;
+}
+
+.no-tiles {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .tile-image {
+    height: 150px;
+  }
+
+  .category-filter {
+    gap: 5px;
+  }
+
+  .category-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

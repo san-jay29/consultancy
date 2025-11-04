@@ -1,0 +1,25 @@
+{
+  "name": "tile-showroom",
+  "version": "1.0.0",
+  "description": "Professional Tile Showroom with 3D Visualizer",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/server.js",
+    "client": "npm start --prefix client",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install"
+  },
+  "keywords": [
+    "tiles",
+    "3d",
+    "visualizer",
+    "showroom"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.10"
+  }
+}
