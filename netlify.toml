@@ -3,7 +3,7 @@
   base = "client/"
   
   # Directory that contains the deploy-ready HTML files and assets
-  publish = "client/build/"
+  publish = "build/"
   
   # Default build command
   command = "npm run build"
@@ -24,4 +24,4 @@
   status = 200
 
 [functions]
-  directory = "netlify/functions"
+  directory = "../netlify/functions"
